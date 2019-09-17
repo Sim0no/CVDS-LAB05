@@ -41,10 +41,32 @@ public class AServlet extends HttpServlet{
        }
        catch(Exception n){
            responseWriter.write("requerimiento inválido");
-       }
-       
-       
-       
-      
+       }                          
    }
+   @Override
+   protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {       
+       Writer responseWriter = resp.getWriter();
+       try{
+           
+           Optional<String> optName = Optional.ofNullable(req.getParameter("id"));
+           String name = optName.isPresent() && !optName.get().isEmpty() ? optName.get() : "";
+           Integer id = Integer.parseInt(name);
+       
+       
+            Todo infoId = getTodo(id);
+            ArrayList<Todo> lista = new ArrayList<Todo>();
+            lista.add(infoId);
+            responseWriter.write(todosToHTMLTable(lista));
+       }
+       catch(java.lang.NumberFormatException e){
+           responseWriter.write("requerimiento inválido");
+       }
+       catch(java.net.MalformedURLException k){
+           responseWriter.write("error interno en el servidor");
+       }
+       catch(Exception n){
+           responseWriter.write("requerimiento inválido");
+       }                          
+   }
+   
 }
