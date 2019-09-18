@@ -14,7 +14,7 @@ import javax.faces.bean.ManagedBean;
  *
  * @author 2146516
  */
-@ManagedBean(name="ABean")
+@ManagedBean(name="guessBean")
 @ApplicationScoped
 public class ABean{
    private Random r = new Random();
@@ -24,7 +24,7 @@ public class ABean{
    private int numeroActual =0;
    private String ganador;
    public ABean(){
-       this.numeroAdivinar = r.nextInt();
+       this.numeroAdivinar = r.nextInt(30);
        this.premio = 100000;
        this.numeroIntentos = 0;
        ganador = "Aun no ha ganado el juego.";
@@ -56,6 +56,7 @@ public class ABean{
    public void guess(int intento){
        numeroIntentos +=1;
        if (intento!=numeroAdivinar & premio>0){
+           ganador = "Incorrecto, Sigue intentando.";
            premio -= 10000; 
        }
        else if (intento==numeroAdivinar & premio<=0){

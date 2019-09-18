@@ -5,14 +5,16 @@ xmlns:p="http://primefaces.org/ui">
     <h:head></h:head>
     <h:body>
         <h:form id="guess_form">
-            
-            <p:outputLabel value="#{ABean.numeroAdivinar}" style="display:block"></p:outputLabel>
-            <p:inputText value="#{ABean.numeroActual}"></p:inputText>
-            <p:outputLabel value="#{ABean.ganador}"></p:outputLabel>
-            <p:outputLabel value="#{ABean.premio}"></p:outputLabel>
-            <p:commandButton value="Adivinar" update="guess_form" actionListener="#{guessBean.guess}"></p:commandButton>
-            <p:commandButton value="Reiniciar" update="guess_form" actionListener="#{guessBean.reStart}"></p:commandButton>
-            
+            <h:panelGrid id = "panel" columns = "1" 
+            cellpadding = "10" cellspacing = "1">
+                <p:outputLabel value="#{guessBean.numeroAdivinar}" style="display:block"></p:outputLabel>
+                <p:outputLabel value="#{guessBean.ganador}"></p:outputLabel>
+                <p:outputLabel value="Posible premio"></p:outputLabel>
+                <p:outputLabel value="#{guessBean.premio}"></p:outputLabel>
+                <p:inputText id="numero" binding="#{numero}"></p:inputText>
+                <p:commandButton value="Adivinar" update="guess_form" actionListener="#{guessBean.guess(numero.value)}"></p:commandButton>
+                <p:commandButton value="Reiniciar" update="guess_form" actionListener="#{guessBean.reStart}"></p:commandButton>
+            </h:panelGrid>
         </h:form>
     </h:body>
 </html>
