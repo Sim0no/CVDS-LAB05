@@ -7,10 +7,14 @@ xmlns:p="http://primefaces.org/ui">
         <h:form id="guess_form">
             <h:panelGrid id = "panel" columns = "1" 
             cellpadding = "10" cellspacing = "1">
-                <p:outputLabel value="#{guessBean.numeroAdivinar}" style="display:block"></p:outputLabel>
+                <p:outputLabel value="#{guessBean.numeroAdivinar}" style="display:none;position:relative"></p:outputLabel>
                 <p:outputLabel value="#{guessBean.ganador}"></p:outputLabel>
                 <p:outputLabel value="Posible premio"></p:outputLabel>
                 <p:outputLabel value="#{guessBean.premio}"></p:outputLabel>
+				<ui:repeat var="item" varStatus="status" value="#{guessBean.intentos}">  
+				   #{item}
+				   #{status.index} 
+				</ui:repeat> 
                 <p:inputText id="numero" binding="#{numero}"></p:inputText>
                 <p:commandButton value="Adivinar" update="guess_form" actionListener="#{guessBean.guess(numero.value)}"></p:commandButton>
                 <p:commandButton value="Reiniciar" update="guess_form" actionListener="#{guessBean.reStart}"></p:commandButton>
