@@ -7,9 +7,8 @@ xmlns:p="http://primefaces.org/ui">
         <h:form id="guess_form">
             <h:panelGrid id = "panel" columns = "1" 
             cellpadding = "10" cellspacing = "1">
-                <p:outputLabel value="#{guessBean.numeroAdivinar}" style="display:none"></p:outputLabel>
+                <p:outputLabel value="#{guessBean.numeroAdivinar}" style="display:block"></p:outputLabel>
                 <p:outputLabel value="#{guessBean.ganador}"></p:outputLabel>
-                <p:outputLabel value="#{guessBean.numeroIntentos}"></p:outputLabel>
                 <p:outputLabel value="Posible premio"></p:outputLabel>
                 <p:outputLabel value="#{guessBean.premio}"></p:outputLabel>
                 <p:inputText id="numero" binding="#{numero}"></p:inputText>

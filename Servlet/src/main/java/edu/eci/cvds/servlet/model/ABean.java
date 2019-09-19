@@ -5,7 +5,6 @@
  */
 package edu.eci.cvds.servlet.model;
 
-import java.io.Serializable;
 import java.util.Random;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
@@ -21,13 +20,12 @@ public class ABean{
    private int numeroAdivinar;
    private int premio;
    private int numeroIntentos=0;
-   private int numeroActual =0;
    private String ganador;
    public ABean(){
        this.numeroAdivinar = r.nextInt(30);
        this.premio = 100000;
        this.numeroIntentos = 0;
-       ganador = "Aun no ha ganado el juego.";
+       this.ganador = "Aun no ha ganado el juego.";
    }
    public int getNumeroAdivinar(){
        return numeroAdivinar;
@@ -70,6 +68,8 @@ public class ABean{
    public void reStart(){
        numeroAdivinar = r.nextInt(30);
        premio = 100000;
+       this.ganador = "Aun no ha ganado el juego.";
+       this.numeroIntentos = 0;
    }
    
    
