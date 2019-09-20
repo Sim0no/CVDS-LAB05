@@ -17,11 +17,11 @@ hl es visible y su valor es: es-419
 
 **Métodos similares**
 
-**Get** se usa para solicitar datos de un recurso especifo.
-**Post** se usa para enviar datos a un servidor para crear / actualizar un recurso.
-**Put** se usa para enviar datos a un servidor para crear / actualizar un recurso.
-**Head**  es casi idéntico a GET, pero sin el cuerpo de respuesta
-**Delete** elimina el recurso especificado.
+Get se usa para solicitar datos de un recurso especifo.
+Post se usa para enviar datos a un servidor para crear / actualizar un recurso.
+Put se usa para enviar datos a un servidor para crear / actualizar un recurso.
+Head es casi idéntico a GET, pero sin el cuerpo de respuesta
+Delete elimina el recurso especificado.
 
 *Fuente:* https://www.w3schools.com/tags/ref_httpmethods.asp.
 
