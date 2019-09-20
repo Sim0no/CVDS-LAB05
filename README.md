@@ -34,6 +34,10 @@ Delete elimina el recurso especificado.
 La clase service realiza una conexion con el dominio jsonpalceholder.typicode.com a través de un objeto URLConnection posteriormente, recibe datos Json que y los Convierte en Gson guardandolos en objetos de tipo Todo.La información es presentada como html para que el navegador la reconozca. Para esto se prestan los servicios de los métodos todoToHTMLRow y todosToHTMLTable.
 
 
+**Diagrama de Clases**
+
+![Diagrama de clases](https://fotos.subefotos.com/69b7d11d34493b9e0ac3af484c1aef93o.png)
+
 
 
 
