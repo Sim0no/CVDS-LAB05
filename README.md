@@ -17,7 +17,7 @@ hl es visible y su valor es: es-419
 
 **Métodos similares**
 
-Get se usa para solicitar datos de un recurso especifo.
+Get se usa para solicitar datos de un recurso especifico.
 
 Post se usa para enviar datos a un servidor para crear / actualizar un recurso.
 
