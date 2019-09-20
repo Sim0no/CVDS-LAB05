@@ -13,11 +13,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ *
+ * La clase AServlet ofrece recursos web
+ */
 @WebServlet(
     urlPatterns = "/cvdsServlet"
 )
 public class AServlet extends HttpServlet{
    static final long serialVersionUID = 36L; 
+   /**
+    *El metodo do doGet ofrece recursos web
+    */
    @Override
    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {       
        Writer responseWriter = resp.getWriter();
@@ -43,6 +50,9 @@ public class AServlet extends HttpServlet{
            responseWriter.write("requerimiento inválido");
        }                          
    }
+    /**
+    *El metodo do doPost ofrece recursos web
+    */
    @Override
    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {       
        Writer responseWriter = resp.getWriter();

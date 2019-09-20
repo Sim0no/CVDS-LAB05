@@ -12,9 +12,20 @@ import com.google.gson.Gson;
 
 import edu.eci.cvds.servlet.model.Todo;
 
+/**
+ *
+ * La clase service realiza una conexion con el dominio jsonpalceholder.typicode.com a través de un objeto URLConnection
+ */
 public class Service {
 
-   public static Todo getTodo(int id) throws MalformedURLException, IOException {
+    /**
+     *
+     * @param id
+     * @return
+     * @throws MalformedURLException
+     * @throws IOException
+     */
+    public static Todo getTodo(int id) throws MalformedURLException, IOException {
        URL urldemo = new URL("https://jsonplaceholder.typicode.com/todos/" + id);
        URLConnection yc = urldemo.openConnection();
        BufferedReader in = new BufferedReader(new InputStreamReader(yc.getInputStream()));
@@ -23,7 +34,10 @@ public class Service {
        in.close();
        return todo;
    }
-
+    /**
+     *El metodo todoToHTMLRow convierte objetos de la clase Todo a una columna HTML
+     * @param Todo  
+     */
    private static String todoToHTMLRow(Todo todo) {
        return new StringBuilder("<tr>")
            .append("<td>")
@@ -39,7 +53,12 @@ public class Service {
            .toString();
    }
 
-   public static String todosToHTMLTable(List<Todo> todoList) {
+    /**
+     * El metodo todosToHTMLTable convierte objetos de la clase Todo a una tabla HTML
+     * @param todoList
+     * @return
+     */
+    public static String todosToHTMLTable(List<Todo> todoList) {
        StringBuilder stringBuilder = new StringBuilder("<table>")
            .append("<tr>")
            .append("<th>User Id</th>")

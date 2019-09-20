@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 /**
  *
- * @author 2146516
+ * La clase ABean sirve para administrar nuestra aplicacion para adivinar un numero 
  */
 @ManagedBean(name="guessBean")
 @SessionScoped
@@ -26,7 +26,11 @@ public class ABean{
    private String mensajeActual;
    private List<Integer> intentos;
    private boolean esGanador;
-   public ABean(){
+
+    /**
+     *Constructor
+     */
+    public ABean(){
        this.numeroAdivinar = r.nextInt(30)+1;
        this.premio = 100000;
        this.numeroIntentos = 0;
@@ -34,37 +38,92 @@ public class ABean{
        this.intentos = new ArrayList<Integer>();
        this.esGanador = false;
    }
-   public int getNumeroAdivinar(){
+
+    /**
+     * Retorna el numero que se debe adivinar
+     * @return
+     */
+    public int getNumeroAdivinar(){
        return numeroAdivinar;
    }
-   public void setNumeroAdivinar(int numeroAdivinar){
+
+    /**
+     * Asigna un nuevo numero a adivinar
+     * @param numeroAdivinar
+     */
+    public void setNumeroAdivinar(int numeroAdivinar){
        this.numeroAdivinar = numeroAdivinar;
    }
-   public int getPremio(){
+
+    /**
+     * Retorna el valor actual del premio.
+     * @return
+     */
+    public int getPremio(){
        return premio;
    }
-   public void setPremio(int premio){
+
+    /**
+     * Asigna un nuevo valor al premio
+     * @param premio
+     */
+    public void setPremio(int premio){
        this.premio = premio;
    }
-   public int getNumeroIntentos(){
+
+    /**
+     * Se retorna el numero de intentos incorrectos que se han realizado hasta el momento 
+     * @return
+     */
+    public int getNumeroIntentos(){
        return numeroIntentos;
    }
-   public void setNumeroIntentos(int numeroIntentos){
+
+    /**
+     * Asigna un valor para el numero de intentos incorrectos que se han realizado hasta el momento
+     * @param numeroIntentos
+     */
+    public void setNumeroIntentos(int numeroIntentos){
        this.numeroIntentos = numeroIntentos;
    }
-   public String getMensajeActual(){
+
+    /**
+     * Retorna el mensaje actual del juego
+     * @return
+     */
+    public String getMensajeActual(){
        return mensajeActual;
    }
-   public void setMensajeActual(String mensajeActual){
+
+    /**
+     * Asigna el mensaje actual del juego
+     * @param mensajeActual
+     */
+    public void setMensajeActual(String mensajeActual){
        this.mensajeActual = mensajeActual;
    }
-   public List<Integer> getIntentos() {
+
+    /**
+     * Retorna los intentos incorrectos hasta el momento del juego 
+     * @return
+     */
+    public List<Integer> getIntentos() {
 	   return intentos;
    }
-   public void setIntentos(List<Integer> intentos) {
+
+    /**
+     * Asigna los intentos incorrectos hasta el momento del juego 
+     * @param intentos
+     */
+    public void setIntentos(List<Integer> intentos) {
 	   this.intentos = intentos;
    }
-   public void guess(String intento){
+
+    /**
+     * Metodo que verifica si se esta colocando un entero en el formulario
+     * @param intento
+     */
+    public void guess(String intento){
 	   try {
 		   int intentow = Integer.parseInt(intento);
 		   guess(intentow);
@@ -74,7 +133,12 @@ public class ABean{
 		   }
 	   }
    }
-   public void guess(int intento){
+
+    /**
+     * Metodo que se encarga de verificar si un intento es correcto o no
+     * @param intento
+     */
+    public void guess(int intento){
 	       if(!esGanador & (intento > 30 || intento <= 0)  ) {
 	    	   setMensajeActual("El numero debe estar entre 1 y 30!...");		    	   
 	       }
@@ -98,7 +162,11 @@ public class ABean{
 
        
    }
-   public void reStart(){
+
+    /**
+     * Reinicia los valores del juego
+     */
+    public void reStart(){
        this.numeroAdivinar = r.nextInt(30);
        this.premio = 100000;
        this.mensajeActual = "Aun no ha ganado el juego.";
